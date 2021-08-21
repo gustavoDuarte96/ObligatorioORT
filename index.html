@@ -1,0 +1,124 @@
+<!--Gastón González y Gustavo Duarte-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Donaciones</title>
+    <script src="js/clases.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="icono" href="img/img.png" type="img/img.png">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div id="estructura">
+    <header>
+        <h1>Sistema de donaciones</h1>
+        <img src="img/img.png" alt="Logo donantes">
+        <nav>
+            <a class="boton" href="index.html#direccion1">Donantes <br></a>
+            <a class="boton" href="index.html#direccion2">Donaciones <br></a>
+            <a class="boton" href="index.html#direccion3">Estadísticas <br></a>
+        </nav>
+        <aside>
+            <section class="indicador">
+                <h4>Total General</h4>
+                <p class="dato" id="totalGeneral"></p>
+            </section>
+            <section class="indicador">
+                <h4>Total Donación Mayor</h4>
+                <p class="dato" id="mayorDonacion"></p>
+            </section>
+        </aside>
+    </header>
+    <main>
+        <section>
+            <form action="#" id="idFormularioDonante">
+                <h2 id="direccion1">Registro de Donantes</h2>
+                <label for="idNombre">Nombre: </label>
+                <input id="idNombre" type="text" placeholder="Nombre" size="20" maxlength="20" required>
+                <label for="idDireccion">Dirección: </label>
+                <input id="idDireccion" type="text" placeholder="Dirección" maxlength="20" required>
+                <label for="idTelefono">Teléfono: </label>
+                <input id="idTelefono" type="number" placeholder="Teléfono" max="99999999999999999999" oninvalid="setCustomValidity('Ponga un teléfono menor a 20 dígitos ')" required>
+                <button id="idBotonAgregarDonante" type="button">Agregar</button>
+            </form>
+        </section>
+        <section>
+            <form action="#" id="idFormularioDonacion">
+                <h2 id="direccion2">Registro de Donaciones</h2>
+                <label for="combo"><span>Donante</span></label>
+                <select id="combo" name="donante">
+                </select>
+                <label for="idModo"><span>Modo</span></label>
+                <select id="idModo" name="metodo">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Canje">Canje</option>
+                    <option value="Mercadería">Mercadería</option>
+                    <option value="Cheque">Cheque</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <label for="idMonto">Monto </label>
+                <input id="idMonto" type="number" name="Monto" step="10" min="0" max="9999" required>
+                <label for="idComentarios">Comentarios </label>
+                <input id="idComentarios" type="text" name="comentario" maxlength="20">
+                <button id="idBotonAgregarDonacion" type="button">Agregar</button>
+            </form>
+        </section>
+        <section>
+            <h3 id="direccion3">Donaciones registradas</h3>
+            <div>
+                <form action="#">
+                    <label>Orden:</label>
+                    <input id="Decreciente" type="radio" name="title" value="check" checked>
+                    <label for="Decreciente">monto decreciente</label> 
+                    <input id="Creciente" type="radio" name="title" value="check2" >
+                    <label for="Creciente">nombre donante creciente</label> 
+                </form>
+            </div>
+            <table id="idTabla">
+                <tr>
+                    <th>
+                        Donante
+                    </th>
+                    <th>
+                        Modo
+                    </th>
+                    <th>
+                        Monto
+                    </th>
+                    <th>
+                        Comentario
+                    </th>
+                </tr>
+                <tbody id="tablaBody"></tbody>
+            </table>
+            <div> 
+                <form action="#" id="resaltar">
+                    <label for="idResaltar">Resaltar filas:</label>
+                    <input id="idResaltar" type="checkbox" name="title" value="check">
+                    <label for="idDeMonto">de monto </label>
+                    <input id="idDeMonto" type="number" name="monto2" placeholder="0" step="10" min="0" max="9999">
+                </form>
+            </div>
+        </section>
+        <section>
+            <h2>Estadísticas</h2>
+            <p id="cantidadDonaciones"></p>
+            <p id="promedioDonaciones"></p>
+            <p id="mayorDonante"></p>
+            <ul id="listaDonantesMaximos"></ul>
+        </section>
+        <div id="chart_wrap">
+            <div id="piechart"></div>
+        </div>
+    </main>
+    </div>
+    <footer>
+        Catedra de Programación - Programación 1 - 1er Semestre 2021 - Gustavo Duarte 245149 / Gastón González 220954
+    </footer>
+</body>
+</html>
